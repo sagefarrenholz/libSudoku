@@ -1,2 +1,2 @@
-solver :
-	g++ *.cpp -o SudokuSolver
+default:
+	g++ -c sudoku_table.cpp 
