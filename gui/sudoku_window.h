@@ -156,6 +156,11 @@ class SudokuWindow : public QMainWindow {
 
 			// TODO add scaling
 			setFixedSize(500, 500);
+
+			// TODO create mode setter
+			this->tablemode = tablemode;
+
+			attach_table(new SudokuTable);
 		}
 	
 		SudokuWindow(SudokuTable* table_, mode tablemode = READ_WRITE) : SudokuWindow(table_->get_dimension(), tablemode) {
@@ -167,23 +172,27 @@ class SudokuWindow : public QMainWindow {
 		void open_file() {
 			QString file = QFileDialog::getOpenFileName(nullptr, "Open a Sudoku File", ".");
 			if (!file.isNull()) {
-				std::ifstream ifs(file.toStdString().c_str());
-				attach_table(new SudokuTable(ifs));
-				enable_saving();
+				SudokuTable table = SudokuTable::open(file.toStdString().c_str());
+				attach_table(&table);
 			}
 		}
 
 		void save_as_file() {
 			QString file = QFileDialog::getSaveFileName(nullptr, "Save as", "./out.su");
 			filename = file.toStdString();
-			// CALL SOME FILE SAVING ROUTINE HERE
+			std::ofstream ofs{filename.c_str()};
+			table->output(ofs);	
+			ofs.close();
 		}
 
 		void save_file() {
 			if(filename.empty()) {
 				save_as_file();
+			} else {	
+				std::ofstream ofs{filename.c_str()};
+				table->output(ofs);
+				ofs.close();
 			}	
-			// CALL SOME FILE SAVING ROUTINE HERE
 		}
 
 		void open_about() {
@@ -194,9 +203,9 @@ class SudokuWindow : public QMainWindow {
 			about->setWindowTitle("About");
 			about->show();
 		}
-		void enable_saving() {
-			findChild<QAction*>("save")->setEnabled(true);
-			findChild<QAction*>("save_as")->setEnabled(true);
+		void enable_saving(bool toggle = true) {
+			findChild<QAction*>("save")->setEnabled(toggle);
+			findChild<QAction*>("save_as")->setEnabled(toggle);
 		}
 			
 		void set_cell(int idx, int val){
@@ -210,10 +219,10 @@ class SudokuWindow : public QMainWindow {
 				if (!table->get(i)) continue;	
 				cell = findChild<SudokuCell*>(QString::number(i));
 				cell->set_display_value(table->get(i));
-				cell->disable();
+				//cell->disable();
 
 			}
-
+			enable_saving();
 		}
 };
 

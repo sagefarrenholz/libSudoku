@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SudokuWindow_t {
-    QByteArrayData data[10];
-    char stringdata0[89];
+    QByteArrayData data[11];
+    char stringdata0[96];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,14 +39,15 @@ QT_MOC_LITERAL(3, 24, 12), // "save_as_file"
 QT_MOC_LITERAL(4, 37, 9), // "save_file"
 QT_MOC_LITERAL(5, 47, 10), // "open_about"
 QT_MOC_LITERAL(6, 58, 13), // "enable_saving"
-QT_MOC_LITERAL(7, 72, 8), // "set_cell"
-QT_MOC_LITERAL(8, 81, 3), // "idx"
-QT_MOC_LITERAL(9, 85, 3) // "val"
+QT_MOC_LITERAL(7, 72, 6), // "toggle"
+QT_MOC_LITERAL(8, 79, 8), // "set_cell"
+QT_MOC_LITERAL(9, 88, 3), // "idx"
+QT_MOC_LITERAL(10, 92, 3) // "val"
 
     },
     "SudokuWindow\0open_file\0\0save_as_file\0"
     "save_file\0open_about\0enable_saving\0"
-    "set_cell\0idx\0val"
+    "toggle\0set_cell\0idx\0val"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +57,7 @@ static const uint qt_meta_data_SudokuWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,20 +65,22 @@ static const uint qt_meta_data_SudokuWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x0a /* Public */,
-       3,    0,   45,    2, 0x0a /* Public */,
-       4,    0,   46,    2, 0x0a /* Public */,
-       5,    0,   47,    2, 0x0a /* Public */,
-       6,    0,   48,    2, 0x0a /* Public */,
-       7,    2,   49,    2, 0x0a /* Public */,
+       1,    0,   49,    2, 0x0a /* Public */,
+       3,    0,   50,    2, 0x0a /* Public */,
+       4,    0,   51,    2, 0x0a /* Public */,
+       5,    0,   52,    2, 0x0a /* Public */,
+       6,    1,   53,    2, 0x0a /* Public */,
+       6,    0,   56,    2, 0x2a /* Public | MethodCloned */,
+       8,    2,   57,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,    7,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,    8,    9,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    9,   10,
 
        0        // eod
 };
@@ -92,8 +95,9 @@ void SudokuWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 1: _t->save_as_file(); break;
         case 2: _t->save_file(); break;
         case 3: _t->open_about(); break;
-        case 4: _t->enable_saving(); break;
-        case 5: _t->set_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 4: _t->enable_saving((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 5: _t->enable_saving(); break;
+        case 6: _t->set_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
     }
@@ -128,13 +132,13 @@ int SudokuWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

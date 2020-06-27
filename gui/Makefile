@@ -52,10 +52,9 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = test.cpp \
-		sudoku_table.cpp moc_sudoku_window.cpp
-OBJECTS       = test.o \
-		sudoku_table.o \
+SOURCES       = test.cpp moc_sudoku_window.cpp
+OBJECTS       = sudoku_table.o \
+		test.o \
 		moc_sudoku_window.o
 DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/common/unix.conf \
@@ -283,8 +282,7 @@ DIST          = /usr/lib/qt/mkspecs/features/spec_pre.prf \
 		/usr/lib/qt/mkspecs/features/exceptions.prf \
 		/usr/lib/qt/mkspecs/features/yacc.prf \
 		/usr/lib/qt/mkspecs/features/lex.prf \
-		test.pro sudoku_window.h test.cpp \
-		sudoku_table.cpp
+		test.pro sudoku_window.h test.cpp
 QMAKE_TARGET  = Sudoku
 DESTDIR       = 
 TARGET        = Sudoku
@@ -767,7 +765,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/qt/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents sudoku_window.h $(DISTDIR)/
-	$(COPY_FILE) --parents test.cpp sudoku_table.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents test.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -826,9 +824,6 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 test.o: test.cpp sudoku_window.h \
 		sudoku_table.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o test.o test.cpp
-
-sudoku_table.o: sudoku_table.cpp sudoku_table.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sudoku_table.o sudoku_table.cpp
 
 moc_sudoku_window.o: moc_sudoku_window.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_sudoku_window.o moc_sudoku_window.cpp
