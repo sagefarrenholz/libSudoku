@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 sudoku_table.o
 sample/bin
+=======
+bin
+>>>>>>> 7471acd... Added sudoku_window.h, a gui using Qt5
