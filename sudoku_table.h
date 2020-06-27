@@ -103,6 +103,9 @@ class SudokuTable {
 		// Construct by reading from stream
 		SudokuTable(std::istream& is);
 
+		// Stream table output
+		void output(std::ostream& os);
+
 		// Get the dimension of the table
 		int get_dimension(void) const;
 
@@ -116,7 +119,7 @@ class SudokuTable {
 		// Set a cell by index. 0 <= i (index)  < dim^2
 		void set(const int& i, const int& n);
 
-		// Set a cell by index. The top-leftmost cell is (1,1)
+		// Set a cell by coordinate. The top-leftmost cell is (1,1)
 		void set(const int& x, const int& y, const int& n); 
 	
 		// Get a cell value by index. 0 corresponds to empty. 	
@@ -124,6 +127,9 @@ class SudokuTable {
 
 		// Returns a bool indicating if the table is complete.
 		bool is_complete(void);
+
+		// Returns a SudokuTable from the given file
+		static SudokuTable open(const char* file);
 };
 
 #endif

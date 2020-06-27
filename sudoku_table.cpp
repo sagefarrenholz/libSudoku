@@ -11,6 +11,7 @@
 #include <cmath>
 #include <cctype>
 #include <algorithm>
+#include <fstream>
 
 /* 
  * Cell Function Definitions
@@ -159,6 +160,24 @@ SudokuTable::SudokuTable(std::istream& is) {
 	init();
 }
 
+// Output through stream
+void SudokuTable::output(std::ostream& os){
+	// If dimension is 0 (unitialized table), this won't run
+	int val, dim = get_dimension();
+	for(int i = 0; i < dim && os.good(); i++){
+		for(int j = 0; j < dim && os.good(); j++){
+			val = get(i * dim + j);
+			if (val > 0){
+				// conversion of val to ascii encoded num 
+				os.put('0' + val);
+			} else {
+				os.put('.');
+			}
+		}
+		os.put('\n');
+	} 
+}
+
 std::string SudokuTable::to_string(void) const { 
 	std::string concat = ""; int wrap = 0; 
 	std::for_each(cells.begin(), cells.end(), [&](const Cell& c){
@@ -255,4 +274,9 @@ bool SudokuTable::is_complete(void) {
 	return false; 
 }
 
-
+SudokuTable SudokuTable::open(const char* file){
+	std::ifstream ifs{file};
+	SudokuTable table{ifs};
+	ifs.close();
+	return table;
+}

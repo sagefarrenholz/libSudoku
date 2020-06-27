@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "sudoku_table.h"
+#include "../sudoku_table.h"
 
 int main(int argc, char* argv[]) {
 
@@ -11,9 +11,9 @@ int main(int argc, char* argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	std::ifstream ifs{argv[1]};
-	
-	SudokuTable table{ifs};
+	std::ofstream ofs{"bin/out.su"};
+
+	SudokuTable table = SudokuTable::open(argv[1]);
 
 	int x, y, n;
 	std::cout << table.to_output();
@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
 	std::cout << "n: ";
 	std::cin >> n;
 
-	while (x > 0 || y > 0 || n != -1){
+	while (x > 0 && y > 0 && n != -1){
 		table.set(x,y,n);
 		std::cout << table.to_output();
 		std::cout << "x: ";
@@ -35,6 +35,7 @@ int main(int argc, char* argv[]) {
 		std::cin >> n;
 	}
 
-	ifs.close(); 
+	table.output(ofs);
+	ofs.close(); 
 	return EXIT_SUCCESS;
 }

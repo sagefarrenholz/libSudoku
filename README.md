@@ -6,7 +6,7 @@ sudokulib provides a straightforward interface to creating and interacting with 
 * Provide table output via graphical interface or stdout.
 ## Installing
 1. Run `make`, creating the sudoku_table.o intermediate.
-2. Link against sudoku_table.o.
-3. Add `#include "sudoku_table.h"` to your code.
+2. Add `#include "sudoku_table.h"` to your code.
+3. Link against sudoku_table.o.
 ## Getting Started
 Please view sample.cpp in sample/
