@@ -135,9 +135,10 @@ class SudokuWindow : public QMainWindow {
 
 			// Grid Layout
 			QWidget* cell_box = new QWidget();
+			cell_box->setObjectName("central");
 			grid_layout = new QGridLayout();		
 			grid_layout->setSpacing(0);
-			grid_layout->setContentsMargins(0, 0, 0, 0);
+			grid_layout->setContentMargins(0, 0, 0, 0);
 			
 			// Grid Layout Creation
 			QWidget* cell;

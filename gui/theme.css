@@ -1,0 +1,14 @@
+QLineEdit {
+       	background-color: white;
+	margin: 0;
+	padding: 0;
+	color: black;
+	border: 5px solid black;
+	border-radius: 0;
+}
+QWidget#central {
+	width: 0;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}

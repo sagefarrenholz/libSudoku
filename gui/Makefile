@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = Sudoku1.0.0
-DISTDIR = /mnt/network/repos/sudoku/gui/.tmp/Sudoku1.0.0
+DISTDIR = /mnt/network/repos/libSudoku/gui/.tmp/Sudoku1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
 LIBS          = $(SUBLIBS) /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Core.so -lGL -lpthread   
@@ -803,7 +803,7 @@ moc_sudoku_window.cpp: sudoku_window.h \
 		sudoku_table.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /mnt/network/repos/sudoku/gui/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/mnt/network/repos/sudoku/gui -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/10.1.0 -I/usr/include/c++/10.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/10.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include-fixed -I/usr/include sudoku_window.h -o moc_sudoku_window.cpp
+	/usr/bin/moc $(DEFINES) --include /mnt/network/repos/libSudoku/gui/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/mnt/network/repos/libSudoku/gui -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/10.1.0 -I/usr/include/c++/10.1.0/x86_64-pc-linux-gnu -I/usr/include/c++/10.1.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/include-fixed -I/usr/include sudoku_window.h -o moc_sudoku_window.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
