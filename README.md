@@ -1,4 +1,4 @@
-# sudoku_lib
+# libSudoku
 ## A Lightweight Sudoku Backend
 sudokulib provides a straightforward interface to creating and interacting with sudoku tables: 
 * Import sudoku files
