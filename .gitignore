@@ -4,3 +4,4 @@ sample/bin
 gui/Sudoku.App
 .qmake.stash
 *.o
+moc*
