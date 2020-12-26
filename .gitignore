@@ -1,2 +1,6 @@
 sudoku_table.o
 sample/bin
+*DS_Store
+gui/Sudoku.App
+.qmake.stash
+*.o

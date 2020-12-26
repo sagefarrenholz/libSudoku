@@ -104,6 +104,9 @@ class SudokuWindow : public QMainWindow {
 	public:
 		SudokuWindow(int dimension = 9, mode tablemode = READ_WRITE) : QMainWindow(), dim(dimension) {
 
+			// Window title
+			this->setWindowTitle("Sudoku");
+
 			// Create MenuBar
 			menu = new SudokuMenuBar;
 			QMenu* file_menu = menu->addMenu("File");
@@ -138,7 +141,7 @@ class SudokuWindow : public QMainWindow {
 			cell_box->setObjectName("central");
 			grid_layout = new QGridLayout();		
 			grid_layout->setSpacing(0);
-			grid_layout->setContentMargins(0, 0, 0, 0);
+			grid_layout->setContentsMargins(0, 0, 0, 0);
 			
 			// Grid Layout Creation
 			QWidget* cell;

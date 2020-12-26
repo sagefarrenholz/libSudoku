@@ -1,5 +1,9 @@
+* {
+	color: red;
+}
 QLineEdit {
-       	background-color: white;
+
+    background-color: white;
 	margin: 0;
 	padding: 0;
 	color: black;
